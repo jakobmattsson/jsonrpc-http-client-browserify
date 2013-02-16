@@ -1,0 +1,26 @@
+{
+  "name": "jsonrpc-http-client-browserify",
+  "version": "0.1.0",
+  "description": "...",
+  "author": "Jakob Mattsson <jakob.mattsson@gmail.com> (jakobmattsson.se)",
+  "main": "./lib/client.js",
+  "engines": {
+    "node": ">= 0.8"
+  },
+  "scripts": {
+    "pretest": "coffee -co lib src",
+    "prepublish": "coffee -co lib src",
+    "coverage": "jscov src .cov && JSCOV=.cov mocha --timeout 10000 --compilers coffee:coffee-script --reporter mocha-term-cov-reporter spec/*.coffee",
+    "test": "mocha --timeout 10000 --compilers coffee:coffee-script spec/*.coffee"
+  },
+  "dependencies": {
+    "reqwest": "0.6.4"
+  },
+  "devDependencies": {
+    "coffee-script": "1.4.0",
+    "jscov": "0.2.0",
+    "mocha": "1.7.4",
+    "mocha-term-cov-reporter": "0.1.0",
+    "should": "1.2.1"
+  }
+}
