@@ -1,7 +1,7 @@
 {
   "name": "jsonrpc-http-client-browserify",
   "version": "0.1.0",
-  "description": "...",
+  "description": "A JSONRPC client for browserify",
   "author": "Jakob Mattsson <jakob.mattsson@gmail.com> (jakobmattsson.se)",
   "main": "./lib/client.js",
   "engines": {
