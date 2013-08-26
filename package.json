@@ -7,20 +7,29 @@
   "engines": {
     "node": ">= 0.8"
   },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jakobmattsson/jsonrpc-http-client-browserify.git"
+  },
   "scripts": {
     "pretest": "coffee -co lib src",
     "prepublish": "coffee -co lib src",
-    "coverage": "jscov src .cov && JSCOV=.cov mocha --timeout 10000 --compilers coffee:coffee-script --reporter mocha-term-cov-reporter spec/*.coffee",
-    "test": "mocha --timeout 10000 --compilers coffee:coffee-script spec/*.coffee"
+    "start": "opra -p 7722",
+    "coverage": "jscov src .cov && JSCOV=.cov mocha -r spec/lib/node.coffee --timeout 10000 --compilers coffee:coffee-script --reporter mocha-term-cov-reporter spec/client-spec.coffee",
+    "test": "mocha -r spec/lib/node.coffee --timeout 10000 --compilers coffee:coffee-script spec/client-spec.coffee"
   },
   "dependencies": {
-    "reqwest": "0.6.4"
+    "reqwest": "^0.6.4"
   },
   "devDependencies": {
-    "coffee-script": "1.4.0",
-    "jscov": "0.2.0",
-    "mocha": "1.7.4",
-    "mocha-term-cov-reporter": "0.1.0",
-    "should": "1.2.1"
+    "underscore": "^1.5.1",
+    "xmlhttprequest": "^1.6.0",
+    "jsdom": "^0.8.4",
+    "opra": "^0.16.3",
+    "coffee-script": "^1.4.0",
+    "jscov": "^0.5.0",
+    "mocha": "^1.12.0",
+    "mocha-term-cov-reporter": "^0.1.0",
+    "should": "^1.2.1"
   }
 }

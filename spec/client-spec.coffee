@@ -1,7 +1,6 @@
-mocha.setup({ ui: 'bdd', timeout: 10000, ignoreLeaks: true })
-
-config = require('spec/config').config
-client = require 'src/client'
+_ = require 'underscore'
+config = reqSpec('config').config
+client = reqSrc('client')
 
 assert = (expr, msg) -> throw new Error(msg || 'failed') if !expr
 
@@ -38,7 +37,7 @@ describe 'construct', ->
       password: config.password
       secondsToLive: 10
     }, (err, data) ->
-      assert(!err?, "should not be an error")
+      throw err if err?
       assert(_.isEqual(Object.keys(data), ['token', 'validated']), "should get some data back")
       done()
 
@@ -50,6 +49,6 @@ describe 'construct', ->
       password: config.password
       secondsToLive: 10
     }, (err, data) ->
-      assert(!err?, "should not be an error")
+      throw err if err?
       assert(_.isEqual(Object.keys(data), ['token', 'validated']), "should get some data back")
       done()
